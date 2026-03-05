@@ -1,7 +1,143 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --line: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --ok: #16a34a;
+  --warn: #f59e0b;
+  --danger: #dc2626;
+  --accent: #0ea5e9;
+}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  color: white;
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #020617, var(--bg));
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.hero {
+  padding: 2.5rem 1rem 1.5rem;
   text-align: center;
-  margin-top: 100px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.container {
+  width: min(980px, 94%);
+  margin: 1.2rem auto 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: color-mix(in srgb, var(--card) 92%, black);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+h2 {
+  margin: 0 0 .75rem;
+  font-size: 1.2rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: .7rem;
+}
+
+label { display: grid; gap: .3rem; color: var(--muted); }
+
+input, select, textarea, button {
+  font: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: .65rem .75rem;
+}
+
+input, select, textarea {
+  background: #0b1220;
+  color: var(--text);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #475569;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.btn-row {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.status {
+  margin-top: .7rem;
+  padding: .5rem .65rem;
+  border-radius: 8px;
+  background: #0b1220;
+}
+
+.filters {
+  margin-top: .9rem;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 1fr 190px;
+}
+
+.task-list, .checklist, .alerts {
+  margin: .7rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.task-list { list-style: none; padding: 0; }
+
+.task-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: .75rem;
+  margin-bottom: .6rem;
+  background: #0b1220;
+}
+
+.task-item.done { border-color: var(--ok); opacity: .92; }
+
+.task-meta {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.task-actions {
+  display: flex;
+  gap: .4rem;
+  margin-top: .6rem;
+  flex-wrap: wrap;
+}
+
+.alerts li {
+  margin-bottom: .4rem;
+  color: var(--warn);
+}
+
+@media (max-width: 700px) {
+  .filters { grid-template-columns: 1fr; }
 }
