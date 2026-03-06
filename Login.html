@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self';" />
+  <title>SafeTaskApp | Demo Web</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>SafeTaskApp</h1>
+    <p>
+      Aplicación web para gestión de tareas y proyectos personales, con inicio de sesión seguro y roles de usuario
+      (administrador y usuario estándar).
+    </p>
+    <p><strong>Usuarios objetivo:</strong> estudiantes y profesionales.</p>
+  </header>
 
+  <main class="container">
+    <section class="card" aria-labelledby="auth-title">
+      <h2 id="auth-title">1) Registro y autenticación segura</h2>
+      <form id="auth-form" class="form-grid" autocomplete="off">
+        <label>
+          Correo
+          <input id="email" name="email" type="email" required placeholder="usuario@correo.com" />
+        </label>
+        <label>
+          Contraseña
+          <input id="password" name="password" type="password" required minlength="8" placeholder="********" />
+        </label>
+        <label>
+          Rol
+          <select id="role" name="role">
+            <option value="user">Usuario estándar</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </label>
+        <div class="btn-row">
+          <button type="button" id="register-btn">Registrarse</button>
+          <button type="button" id="login-btn">Iniciar sesión</button>
+          <button type="button" id="logout-btn" class="secondary">Cerrar sesión</button>
+        </div>
+      </form>
+      <ul class="checklist">
+        <li>Hash de contraseñas recomendado: <strong>bcrypt o Argon2</strong> (simulado en esta demo).</li>
+        <li>Validación de correo electrónico en frontend.</li>
+        <li>Límite de intentos de login y bloqueo temporal (demo de seguridad).</li>
+      </ul>
+      <p id="auth-status" class="status" aria-live="polite">No hay sesión activa.</p>
+    </section>
